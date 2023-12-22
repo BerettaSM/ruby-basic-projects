@@ -10,4 +10,9 @@ describe "#caesar_cipher" do
         result = caesar_cipher("Bmfy f xywnsl!", -5)
         expect(result).to eql("What a string!")
     end
+
+    it "should return the same string when shift is zero" do
+        result = caesar_cipher("What a string!", 0)
+        expect(result).to eql("What a string!")
+    end
 end
