@@ -5,4 +5,9 @@ describe "#caesar_cipher" do
         result = caesar_cipher("What a string!", 5)
         expect(result).to eql("Bmfy f xywnsl!")
     end
+
+    it "should correctly decipher" do
+        result = caesar_cipher("Bmfy f xywnsl!", -5)
+        expect(result).to eql("What a string!")
+    end
 end
