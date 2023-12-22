@@ -20,4 +20,9 @@ describe "#caesar_cipher" do
         result = caesar_cipher("What a string!", 26)
         expect(result).to eql("What a string!")
     end
+
+    it "should only change letters" do
+        result = caesar_cipher("Mama mia @123#9()", 26)
+        expect(result).to match /@123#9\(\)$/
+    end
 end
