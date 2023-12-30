@@ -1,27 +1,23 @@
-def stock_picker stocks
-    highest_profit_so_far = -Float::INFINITY
-    day_with_lowest_stock_so_far = 0
-    most_profitable_days = nil
-    
-    for day in 1...stocks.length do
-        lowest_stock_so_far = stocks[day_with_lowest_stock_so_far]
-        cur_stock = stocks[day]
+#!/usr/bin/env ruby
 
-        possible_profit = cur_stock - lowest_stock_so_far
+def stock_picker stock_prices
+  max_profit = cur_best_buy = 0
+  most_profitable = nil
 
-        if possible_profit > highest_profit_so_far
-            highest_profit_so_far = possible_profit
-            most_profitable_days = day_with_lowest_stock_so_far, day
-        end
+  stock_prices.each_with_index do |price, day|
+    profit = price - stock_prices[cur_best_buy]
 
-        if  cur_stock < lowest_stock_so_far
-            day_with_lowest_stock_so_far = day
-        end
+    if profit < 0
+      cur_best_buy = day
+    elsif profit > max_profit
+      max_profit = profit
+      most_profitable = [cur_best_buy, day]
     end
+  end
 
-    most_profitable_days
+  most_profitable
 end
 
-print stock_picker([17,3,6,9,15,8,6,1,10]) # -> [1,4]
-print stock_picker([8,5,4,3,2,8,10,29,5])  # -> [4,7]
-print stock_picker([7,9,14,9,15,8,6,8,15]) # -> [6,8]
+p stock_picker([17,3,6,9,15,8,6,1,10]) # -> [1,4]
+p stock_picker([8,5,4,3,2,8,10,29,5])  # -> [4,7]
+p stock_picker([7,9,14,9,15,8,6,8,15]) # -> [6,8]

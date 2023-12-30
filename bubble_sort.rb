@@ -1,12 +1,22 @@
-def bubble_sort arr
-    (arr.length-1).downto 1 do |i|
-        1.upto i do |j|
-            if arr[j] < arr[j-1]
-                arr[j],arr[j-1] = arr[j-1], arr[j]
-            end
-        end
+#!/usr/bin/env ruby
+
+
+def bubble_sort array
+  copy = array.dup
+
+  for i in (copy.length-1).step(1, -1)
+    swap = false
+    for j in 1..i
+      if copy[j] < copy[j-1]
+        copy[j], copy[j-1] = copy[j-1], copy[j]
+        swap = true
+      end
     end
-    arr
+    break if !swap
+  end
+
+  copy
 end
 
 p bubble_sort([4,3,78,2,0,2])
+

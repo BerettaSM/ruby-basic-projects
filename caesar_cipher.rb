@@ -1,14 +1,17 @@
-def caesar_cipher string, shift
-    letters = ('a'..'z').to_a
-    string.split("").collect { |char|
-        unless letters.include? char.downcase
-            char
-        else
-            char_index = letters.find_index char.downcase
-            mapped_char = letters[(char_index + shift) % letters.length]
-            char.upcase == char ? mapped_char.upcase : mapped_char
-        end 
-    }.join("")
+#!/usr/bin/env ruby
+
+
+def caesar_cipher text, rotations = 5
+  tokens = ('a'..'z').to_a.rotate(rotations)
+  
+  text.split('').map do |token|
+    if ('a'..'z').include? token.downcase
+      index = token.downcase.ord - 'a'.ord
+      token.downcase == token ? tokens[index] : tokens[index].upcase
+    else
+      token
+    end
+  end.join
 end
 
 
