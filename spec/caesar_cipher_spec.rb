@@ -1,28 +1,30 @@
-require './caesar_cipher.rb'
+# frozen_string_literal: true
 
-describe "#caesar_cipher" do
-    it "should correctly cipher" do
-        result = caesar_cipher("What a string!", 5)
-        expect(result).to eql("Bmfy f xywnsl!")
-    end
+require_relative '../lib/caesar_cipher'
 
-    it "should correctly decipher" do
-        result = caesar_cipher("Bmfy f xywnsl!", -5)
-        expect(result).to eql("What a string!")
-    end
+describe '#caesar_cipher' do
+  it 'should correctly cipher' do
+    result = caesar_cipher('What a string!', 5)
+    expect(result).to eql('Bmfy f xywnsl!')
+  end
 
-    it "should return the same string when shift is zero" do
-        result = caesar_cipher("What a string!", 0)
-        expect(result).to eql("What a string!")
-    end
+  it 'should correctly decipher' do
+    result = caesar_cipher('Bmfy f xywnsl!', -5)
+    expect(result).to eql('What a string!')
+  end
 
-    it "should return the same string with a full shift" do
-        result = caesar_cipher("What a string!", 26)
-        expect(result).to eql("What a string!")
-    end
+  it 'should return the same string when shift is zero' do
+    result = caesar_cipher('What a string!', 0)
+    expect(result).to eql('What a string!')
+  end
 
-    it "should only change letters" do
-        result = caesar_cipher("Mama mia @123#9()", 26)
-        expect(result).to match /@123#9\(\)$/
-    end
+  it 'should return the same string with a full shift' do
+    result = caesar_cipher('What a string!', 26)
+    expect(result).to eql('What a string!')
+  end
+
+  it 'should only change letters' do
+    result = caesar_cipher('Mama mia @123#9()', 26)
+    expect(result).to match(/@123#9\(\)$/)
+  end
 end
