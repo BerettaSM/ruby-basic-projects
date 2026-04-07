@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# rubocop: disable Metrics/MethodLength
 def stock_picker(stock_prices)
   max_profit = cur_best_buy = 0
   most_profitable = nil
@@ -18,3 +19,4 @@ def stock_picker(stock_prices)
 
   most_profitable
 end
+# rubocop: enable Metrics/MethodLength

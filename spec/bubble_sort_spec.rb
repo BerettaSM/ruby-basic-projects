@@ -2,6 +2,7 @@
 
 require_relative '../lib/bubble_sort'
 
+# rubocop: disable Metrics/BlockLength
 RSpec.describe '#bubble_sort' do
   let(:random) { [[4, 3, 78, 1, 0, 2], [0, 1, 2, 3, 4, 78]] }
   let(:ordered) { [[0, 1, 2, 3, 4, 5], [0, 1, 2, 3, 4, 5]] }
@@ -46,3 +47,4 @@ RSpec.describe '#bubble_sort' do
     expect(actual).to eq expected
   end
 end
+# rubocop: enable Metrics/BlockLength

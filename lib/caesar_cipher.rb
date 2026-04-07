@@ -5,7 +5,7 @@ def caesar_cipher(text, rotations = 5)
   tokens = ('a'..'z').to_a.rotate(rotations)
 
   text.chars.map do |token|
-    if ('a'..'z').include? token.downcase
+    if ('a'..'z').cover? token.downcase
       index = token.downcase.ord - 'a'.ord
       token.downcase == token ? tokens[index] : tokens[index].upcase
     else

@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# rubocop: disable Metrics/MethodLength
 def bubble_sort(array)
   copy = array.dup
   (copy.length - 1).downto(1) do |i|
@@ -15,3 +16,4 @@ def bubble_sort(array)
   end
   copy
 end
+# rubocop: enable Metrics/MethodLength

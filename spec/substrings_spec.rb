@@ -18,4 +18,3 @@ RSpec.describe '#substrings' do
                                                          'go' => 1, 'going' => 1)
   end
 end
-
